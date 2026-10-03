@@ -34,9 +34,9 @@ function graficarGato(){
     //let alto = 50;    
 
     // dibujar rectángulo azul
-    ctx.fillStyle = "blue";       // Color de relleno
-    ctx.fillRect(gatoX, gatoY, ANCHO_GATO, ALTO_GATO);
-
+    //ctx.fillStyle = "blue";       // Color de relleno
+   //ctx.fillRect(gatoX, gatoY, ANCHO_GATO, ALTO_GATO);
+    graficarRectangulo(gatoX, gatoY, ANCHO_GATO, ALTO_GATO, "blue")
 }
 
 function graficarComida(){
@@ -48,6 +48,12 @@ function graficarComida(){
     //comidaY = 0;
 
     // dibujar el cuadrado
-    ctx.fillStyle = "red";
-    ctx.fillRect(comidaX, comidaY, ANCHO_COMIDA, ALTO_COMIDA);
+    //ctx.fillStyle = "red";
+    //ctx.fillRect(comidaX, comidaY, ANCHO_COMIDA, ALTO_COMIDA);
+    graficarRectangulo(comidaX, comidaY, ANCHO_COMIDA, ALTO_COMIDA, "red")
+}
+
+function graficarRectangulo(x, y, ancho, alto, color){
+    ctx.fillStyle = color;       // Color de relleno
+    ctx.fillRect(x, y, ancho, alto); //dibuja rectangulo
 }
