@@ -71,7 +71,70 @@ function moverIzquierda() {
     
     // Considerar límites (opcional pero recomendado)
     if (gatoX < 0) {
-        gatoX = 0; // No permitir que salga del canvas por la izquierda
+        gatoX = 0; // no salga del canvas
+    }
+    
+    //llamar a limpiarCanva
+    limpiarCanva();
+    
+    // llamar a dibujarGato
+    graficarGato();
+    
+    // comida se borra al limpiar el canvas, vuelve a dibujarla
+    graficarComida();
+}
+
+
+//mover a la derecha 10px
+function moverDerecha() {
+    //restar 10 a gatoX
+    gatoX = gatoX + 10;
+    
+    // Considerar límites (opcional pero recomendado)
+    if (gatoX < 0) {
+        gatoX = 0; // no salga del canvas
+    }
+    
+    //llamar a limpiarCanva
+    limpiarCanva();
+    
+    // llamar a dibujarGato
+    graficarGato();
+    
+    // comida se borra al limpiar el canvas, vuelve a dibujarla
+    graficarComida();
+}
+
+
+//mover a la arriba 10px
+function moverArriba() {
+    //restar 10 a gatoX
+    gatoY = gatoY - 10;
+    
+    // Considerar límites (opcional pero recomendado)
+    if (gatoY < 0) {
+        gatoY = 0; // no salga del canvas
+    }
+    
+    //llamar a limpiarCanva
+    limpiarCanva();
+    
+    // llamar a dibujarGato
+    graficarGato();
+    
+    // comida se borra al limpiar el canvas, vuelve a dibujarla
+    graficarComida();
+}
+
+
+//mover a la abajo 10px
+function moverAbajo() {
+    //restar 10 a gatoX
+    gatoY = gatoY + 10;
+    
+    // Considerar límites (opcional pero recomendado)
+    if (gatoY < 0) {
+        gatoY = 0; // no salga del canvas
     }
     
     //llamar a limpiarCanva
