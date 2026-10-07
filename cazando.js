@@ -39,7 +39,7 @@ function graficarGato(){
     graficarRectangulo(gatoX, gatoY, ANCHO_GATO, ALTO_GATO, "blue")
 }
 
-function graficarComida(){
+function graficarComida(){ 
     //cuadrado
     //let tamano = 20;
 
@@ -56,4 +56,30 @@ function graficarComida(){
 function graficarRectangulo(x, y, ancho, alto, color){
     ctx.fillStyle = color;       // Color de relleno
     ctx.fillRect(x, y, ancho, alto); //dibuja rectangulo
+}
+
+//limpiar canvas
+function limpiarCanva() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+
+//mover a la izquierda 10px
+function moverIzquierda() {
+    //restar 10 a gatoX
+    gatoX = gatoX - 10;
+    
+    // Considerar límites (opcional pero recomendado)
+    if (gatoX < 0) {
+        gatoX = 0; // No permitir que salga del canvas por la izquierda
+    }
+    
+    //llamar a limpiarCanva
+    limpiarCanva();
+    
+    // llamar a dibujarGato
+    graficarGato();
+    
+    // comida se borra al limpiar el canvas, vuelve a dibujarla
+    graficarComida();
 }
