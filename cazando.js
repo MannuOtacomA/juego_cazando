@@ -7,6 +7,8 @@ let gatoY = 0;
 let comidaX = 0;
 let comidaY = 0;
 
+let puntaje  = 0;
+
 const ANCHO_GATO = 50;
 const ALTO_GATO = 50;
 
@@ -69,9 +71,9 @@ function moverIzquierda() {
     //restar 10 a gatoX
     gatoX = gatoX - 10;
     
-    // Considerar límites (opcional pero recomendado)
+    // límites 
     if (gatoX < 0) {
-        gatoX = 0; // no salga del canvas
+        gatoX = 0; // no salga del limite izquierdo
     }
     
     //llamar a limpiarCanva
@@ -82,17 +84,20 @@ function moverIzquierda() {
     
     // comida se borra al limpiar el canvas, vuelve a dibujarla
     graficarComida();
+
+    detectarColision();
 }
 
 
 //mover a la derecha 10px
 function moverDerecha() {
     //restar 10 a gatoX
-    gatoX = gatoX + 10;
-    
-    // Considerar límites (opcional pero recomendado)
-    if (gatoX < 0) {
-        gatoX = 0; // no salga del canvas
+    gatoX = gatoX + 10;     
+
+    //no pase el límite derecho
+    if (gatoX + ANCHO_GATO > canvas.width) {
+        // Si se pasa, lo regresa al borde derecho
+        gatoX = canvas.width - ANCHO_GATO; 
     }
     
     //llamar a limpiarCanva
@@ -103,6 +108,8 @@ function moverDerecha() {
     
     // comida se borra al limpiar el canvas, vuelve a dibujarla
     graficarComida();
+
+    detectarColision();
 }
 
 
@@ -111,9 +118,9 @@ function moverArriba() {
     //restar 10 a gatoX
     gatoY = gatoY - 10;
     
-    // Considerar límites (opcional pero recomendado)
+    // considerar límites 
     if (gatoY < 0) {
-        gatoY = 0; // no salga del canvas
+        gatoY = 0; // no salga del limite
     }
     
     //llamar a limpiarCanva
@@ -124,6 +131,8 @@ function moverArriba() {
     
     // comida se borra al limpiar el canvas, vuelve a dibujarla
     graficarComida();
+
+    detectarColision();
 }
 
 
@@ -132,9 +141,13 @@ function moverAbajo() {
     //restar 10 a gatoX
     gatoY = gatoY + 10;
     
-    // Considerar límites (opcional pero recomendado)
-    if (gatoY < 0) {
+    // considerar límites
+   /* if (gatoY < 0) {
         gatoY = 0; // no salga del canvas
+    }*/
+
+    if (gatoY + ALTO_GATO > canvas.height) {
+        gatoY = canvas.height - ALTO_GATO;
     }
     
     //llamar a limpiarCanva
@@ -145,4 +158,31 @@ function moverAbajo() {
     
     // comida se borra al limpiar el canvas, vuelve a dibujarla
     graficarComida();
+
+    detectarColision();
 }
+
+
+// detectar colisión gato y comida
+function detectarColision() {
+    // ver si los rectángulos se superponen
+    if (gatoX < comidaX + ANCHO_COMIDA &&
+        gatoX + ANCHO_GATO > comidaX &&
+        gatoY < comidaY + ALTO_COMIDA &&
+        gatoY + ALTO_GATO > comidaY) {
+        
+        alert("Miauu...El gato comio la comida...");
+        //Incrementar el puntaje y mostrarlo en pantalla.
+        mostrarTexto("puntos",puntaje+=1)
+        // aparece comida en lugar aleatorio
+        comidaX = Math.random() * (canvas.width - ANCHO_COMIDA);
+        comidaY = Math.random() * (canvas.height - ALTO_COMIDA);
+        
+        // Limpiar y redibujar todo
+        limpiarCanva();
+        graficarGato();
+        graficarComida();
+    }
+}
+
+
