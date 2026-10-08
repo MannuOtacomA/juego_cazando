@@ -8,6 +8,9 @@ let comidaX = 0;
 let comidaY = 0;
 
 let puntaje  = 0;
+let tiempo = 10;
+let intervalo;
+let velocidad = 5000;
 
 const ANCHO_GATO = 50;
 const ALTO_GATO = 50;
@@ -18,6 +21,8 @@ const ALTO_COMIDA = 20;
 
 
 function iniciarJuego(){
+    //inicia tiempo
+    intervalo = setInterval(restarTiempo,velocidad);
     // centrar rectangulo en el canvas de 500x500
     gatoX = (canvas.width - ANCHO_GATO) / 2;   // (500 - 50) / 2 = 225
     gatoY = (canvas.height - ALTO_GATO) / 2;   // (500 - 50) / 2 = 225
@@ -182,6 +187,16 @@ function detectarColision() {
         limpiarCanva();
         graficarGato();
         graficarComida();
+    }
+}
+
+
+function restarTiempo(){
+    tiempo-=1;
+    console.log(tiempo);
+    mostrarTexto("tiempo",tiempo)
+    if (tiempo == 0) {
+        clearInterval(intervalo);
     }
 }
 
