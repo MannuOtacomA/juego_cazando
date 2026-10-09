@@ -179,6 +179,10 @@ function detectarColision() {
         alert("Miauu...El gato comio la comida...");
         //Incrementar el puntaje y mostrarlo en pantalla.
         mostrarTexto("puntos",puntaje+=1)
+        if (puntaje == 6) {
+            clearInterval(intervalo);
+            alert("Ganador...");
+        }
         // aparece comida en lugar aleatorio
         comidaX = Math.random() * (canvas.width - ANCHO_COMIDA);
         comidaY = Math.random() * (canvas.height - ALTO_COMIDA);
@@ -197,7 +201,29 @@ function restarTiempo(){
     mostrarTexto("tiempo",tiempo)
     if (tiempo == 0) {
         clearInterval(intervalo);
+        alert("Game Over..")
     }
 }
 
+
+function reiniciar() {
+    //detener el intervalo actual
+    clearInterval(intervalo);
+
+    //limpar canvas
+    limpiarCanva();
+
+    // einiciar las variables
+    puntaje = 0;
+    tiempo = 10;
+
+    // actualizar la pantalla 
+    mostrarTexto("puntos", puntaje);
+    mostrarTexto("tiempo", tiempo);
+
+    // llamar a inicia
+    iniciarJuego();
+
+    console.log("Juego reiniciado");
+}
 
