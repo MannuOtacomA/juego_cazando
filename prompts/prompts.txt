@@ -8,3 +8,17 @@ Mantén todos los selectores existentes (.panel, .controles, button, etc.)
 No cambies ningún ID o class name
 
 2
+Agrega al CSS:
+ Box-shadow a los botones para que tengan efecto 3D
+ Border-radius más pronunciado (15px-20px)
+ Mejora el padding y margin para mejor espaciado
+ Agrega hover effects a los botones (transform: scale, box-shadow)
+ Mantén la estructura actual de clases
+
+3 responsive
+Agrega media queries al archivo cazando.css para que:
+ En pantallas menores a 768px, el canvas se reduzca al 90% del ancho
+ Los botones se apilen verticalmente en móvil
+ El texto sea más pequeño en móviles (usa font-size: 14px)
+ El panel de puntuación se muestre en columna en lugar de fila
+ No modifiques los nombres de clases existentes

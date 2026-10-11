@@ -1,36 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Juego Cazando</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego Cazando - MEOT</title>
   <link rel="stylesheet" href="cazando.css">
 </head>
-<body onload="iniciarJuego()">
+<body>
 
-  <h1>Juego Cazando</h1>
-  <p>Autor: MEOT</p>
-  <canvas id="areaJuego" width="500" height="500" > </canvas>
+  <h1>🐱 Juego Cazando</h1>
+  <p style="color: white; font-size: 1em; margin-bottom: 15px;">Autor: <strong>MEOT</strong></p>
 
   <div class="controles">
-    <button onclick="moverArriba()" >⬆</button>
-    <br>
-    <button onclick="moverIzquierda()" >⬅</button>
-    <button onclick="moverAbajo()" >⬇</button>
-    <button onclick="moverDerecha()" > ➡</button>
+    <button onclick="moverArriba()">⬆️</button>
   </div>
 
-
-  <div class="panel">
-    <span>Puntos: <span id="puntos">0</span></span>
-    <span>Tiempo: <span id="tiempo">10</span></span>
+  <div class="controles">
+    <button onclick="moverIzquierda()">⬅️</button>
+    <button onclick="moverAbajo()">️</button>
+    <button onclick="moverDerecha()">➡️</button>
   </div>
 
   <div class="panel">
-    <button onclick="reiniciar()" >Reiniciar</button>
+    <span>Puntos: <strong id="puntos">0</strong></span>
+    <span>Tiempo: <strong id="tiempo">10</strong></span>
+  </div>
+
+  <canvas id="areaJuego" width="500" height="500"></canvas>
+
+  <div class="controles">
+    <button onclick="iniciarJuego()">▶️ Iniciar</button>
+    <button onclick="reiniciar()">🔄 Reiniciar</button>
   </div>
 
   <p id="mensaje"></p>
 
-<script src="cazando.js"></script>
-<script src="utilitarios.js"></script>
+  <script src="cazando.js"></script>
+  <script src="utilitarios.js"></script>
 </body>
 </html>
