@@ -1,0 +1,10 @@
+
+1
+Mejora el archivo cazando.css que tenga:
+Un fondo degradado moderno (usa linear-gradient)
+Colores más vibrantes para el canvas
+Mejora la tipografía con Google Fonts (importa 'Roboto' o 'Poppins')
+Mantén todos los selectores existentes (.panel, .controles, button, etc.)
+No cambies ningún ID o class name
+
+2
