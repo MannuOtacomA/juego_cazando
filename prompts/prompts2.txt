@@ -1,0 +1,7 @@
+3 responsive
+Agrega media queries al archivo cazando.css para que:
+ En pantallas menores a 768px, el canvas se reduzca al 90% del ancho
+ Los botones se apilen verticalmente en móvil
+ El texto sea más pequeño en móviles (usa font-size: 14px)
+ El panel de puntuación se muestre en columna en lugar de fila
+ No modifiques los nombres de clases existentes
